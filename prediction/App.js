@@ -2,8 +2,13 @@ import React from 'react';
 import firebase from 'firebase';
 import { StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux';
+import { TabNavigator, StackNavigator } from 'react-navigation';
 
 import store from './store';
+import AuthScreen from './screens/AuthScreen';
+import PreScreen from './screens/PreScreen';
+import AfterScreen from './screens/AfterScreen';
+
 
 export default class App extends React.Component {
   componentDidMount() {
@@ -19,10 +24,35 @@ firebase.initializeApp(config);
 }
 
   render() {
+    const MainNavigator = TabNavigator({
+    auth: {screen: AuthScreen},
+    main: {screen: TabNavigator({
+          pre: {screen: PreScreen },
+          after: {screen: AfterScreen},
+      },{
+          swipeEnabled: false,
+          animationEnabled: false,
+          tabBarPosition: 'bottom',
+          tabBarOptions: {
+            labelStyle: { fontSize: 12},
+            backBehavior: 'none',
+          }
+      })
+    }
+ },
+ {      navigationOptions:{
+          tabBarVisible: false,
+      },
+      lazy: true,
+      swipeEnabled: false,
+      animationEnabled: false,
+  }
+ );
+
     return (
       <Provider store={store}>
         <View style={styles.container}>
-          <Text> Prediction 1.0.0 </Text>
+          <MainNavigator />
         </View>
       </Provider>
     );
@@ -33,7 +63,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
