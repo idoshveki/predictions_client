@@ -18,7 +18,7 @@ firebase.initializeApp(config);
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
+        <Text> Prediction 1.0.0 </Text>
       </View>
     );
   }
