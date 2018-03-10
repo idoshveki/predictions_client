@@ -6,7 +6,7 @@ export default class AfterScreen extends React.Component {
   render() {
     return (
         <View style={styles.container}>
-          <Text> PreScreen </Text>
+          <Text> AfterScreen </Text>
         </View>
     );
   }
