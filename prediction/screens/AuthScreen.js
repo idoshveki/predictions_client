@@ -8,7 +8,7 @@ export default class AuthScreen extends React.Component {
   _handleFacebookLogin = async () => {
   try {
     const { type, token } = await Facebook.logInWithReadPermissionsAsync(
-      '1201211719949057', // Replace with your own app id in standalone app
+      '1849864621945541', // Replace with your own app id in standalone app
       { permissions: ['public_profile'] }
     );
 
@@ -46,7 +46,6 @@ export default class AuthScreen extends React.Component {
 };
 
 _handleGoogleLogin = () => {
-  console.log('Google Pressed');
   this.props.navigation.navigate('pre');
   };
 
@@ -64,7 +63,6 @@ _handleGoogleLogin = () => {
             type='facebook'
             onPress={this._handleFacebookLogin}
           />
-
           <SocialIcon
             title='Sign In With Google'
             button
