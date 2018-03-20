@@ -9,7 +9,6 @@ import AuthScreen from './screens/AuthScreen';
 import PreScreen from './screens/PreScreen';
 import AfterScreen from './screens/AfterScreen';
 
-
 export default class App extends React.Component {
   componentDidMount() {
   const config = {
